@@ -1,5 +1,6 @@
 # Terraform-aws-vpcbatch5
 
+```hcl
 module "vpc" {
 source = "iliasDzh/vpcbatch5/aws"
 region = "us-east-2"
@@ -11,4 +12,4 @@ ip_on_launch = true
 instance_type = "t2.micro"
 
 }
-
+```
