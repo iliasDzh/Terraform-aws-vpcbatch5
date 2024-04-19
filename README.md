@@ -1,10 +1,6 @@
 # Terraform-aws-vpcbatch5
+
 ## Create main.tf file and input following
-
-
-
-Create main.tf file and input following 
-
 ```hcl
 module "vpc" {
 source = "iliasDzh/vpcbatch5/aws"
