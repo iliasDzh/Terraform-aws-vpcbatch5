@@ -15,11 +15,12 @@ instance_type = "t2.micro"
 subnet1_name = "hello1"
 subnet2_name = "hello2"
 subnet3_name = "hello3"
-ports = [
-    {from_port   = ingress.value.from_port}
-    { to_port     = ingress.value.to_port}
-]
-
+ ports = [
+        { from_port = 22, to_port = 22 },
+        { from_port = 80, to_port = 80 },          # Provide list of ports
+        { from_port = 81, to_port = 81 },
+        { from_port = 82, to_port = 82 }
+    ]
 }
 ```
 ## Create apache.sh file and input a script. Eg.
