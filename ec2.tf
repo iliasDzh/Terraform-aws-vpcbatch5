@@ -17,20 +17,20 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_instance" "web" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = var.instance_type
-  subnet_id = aws_subnet.main.id
+  ami                    = data.aws_ami.ubuntu.id
+  instance_type          = var.instance_type
+  subnet_id              = aws_subnet.main.id
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
- 
+
   user_data = file("apache.sh")
- 
-#   key_name = aws_key_pair.deployer.key_name
-#   count = 3
-#   user_data = file("apache.sh")
-#   user_data_replace_on_change = true
-  
+
+  #   key_name = aws_key_pair.deployer.key_name
+  #   count = 3
+  #   user_data = file("apache.sh")
+  #   user_data_replace_on_change = true
+
 }
 
-output ec2 {
-    value = aws_instance.web.public_ip
+output "ec2" {
+  value = aws_instance.web.public_ip
 }

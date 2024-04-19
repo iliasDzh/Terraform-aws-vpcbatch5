@@ -1,5 +1,5 @@
-provider aws {
-    region = var.region
+provider "aws" {
+  region = var.region
 }
 
 resource "aws_vpc" "main" {
@@ -7,20 +7,20 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_subnet" "main" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = var.subnet1_cidr
-map_public_ip_on_launch = true
-  availability_zone = "${var.region}a"
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.subnet1_cidr
+  map_public_ip_on_launch = true
+  availability_zone       = "${var.region}a"
   tags = {
     Name = var.subnet1_name
   }
 }
 
 resource "aws_subnet" "main1" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = var.subnet2_cidr
-map_public_ip_on_launch = var.ip_on_launch
-  availability_zone = "${var.region}b"
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.subnet2_cidr
+  map_public_ip_on_launch = var.ip_on_launch
+  availability_zone       = "${var.region}b"
   tags = {
     Name = var.subnet2_name
   }
@@ -28,10 +28,10 @@ map_public_ip_on_launch = var.ip_on_launch
 
 
 resource "aws_subnet" "main3" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = var.subnet3_cidr
-map_public_ip_on_launch = var.ip_on_launch
-  availability_zone = "${var.region}c"
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.subnet3_cidr
+  map_public_ip_on_launch = var.ip_on_launch
+  availability_zone       = "${var.region}c"
   tags = {
     Name = var.subnet3_name
   }

@@ -4,6 +4,7 @@
 ```hcl
 module "vpc" {
 source = "iliasDzh/vpcbatch5/aws"
+version = "0.0.3"
 region = "us-east-2"
 vpc_cidr = "10.0.0.0/16"
 subnet1_cidr = "10.0.1.0/24"
@@ -14,7 +15,10 @@ instance_type = "t2.micro"
 subnet1_name = "hello1"
 subnet2_name = "hello2"
 subnet3_name = "hello3"
-ports = [22,80,81]
+ports = [
+    {from_port   = ingress.value.from_port}
+    { to_port     = ingress.value.to_port}
+]
 
 }
 ```
