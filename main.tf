@@ -12,7 +12,7 @@ resource "aws_subnet" "main" {
 map_public_ip_on_launch = true
   availability_zone = "${var.region}a"
   tags = {
-    Name = "subnet1"
+    Name = var.subnet1_name
   }
 }
 
@@ -22,7 +22,7 @@ resource "aws_subnet" "main1" {
 map_public_ip_on_launch = var.ip_on_launch
   availability_zone = "${var.region}b"
   tags = {
-    Name = "subnet2"
+    Name = var.subnet2_name
   }
 }
 
@@ -33,7 +33,7 @@ resource "aws_subnet" "main3" {
 map_public_ip_on_launch = var.ip_on_launch
   availability_zone = "${var.region}c"
   tags = {
-    Name = "subnet3"
+    Name = var.subnet3_name
   }
 }
 resource "aws_internet_gateway" "gw" {
